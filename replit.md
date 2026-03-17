@@ -1,3 +1,23 @@
+# AI Student Hub
+
+## Project
+
+One-page landing site for students showcasing top 5 AI study tools, ad slots, and a guide download CTA. Fully in Spanish.
+
+### Artifact: `ai-student-hub` (react-vite, preview at `/`)
+
+- **Stack**: React + Vite + Tailwind CSS + Framer Motion
+- **Pages**: `src/pages/Home.tsx` — single page with all sections
+- **Components**: `AdPlaceholder`, `ToolCard`, `CookieBanner`
+- **Theme**: Dark (#121212 bg, #1e1e1e cards, #6366f1 indigo primary, #22c55e green CTA)
+- **Fonts**: Inter 400/600/700/800
+- **Logo/Favicon**: `public/brain_logo.png`
+- **SEO**: Full meta tags + Open Graph + Twitter Card in `index.html`
+- **Ad slots**: 3 clean "Publicidad" placeholders (replace with AdSense later)
+- **Cookie banner**: localStorage-based consent
+
+---
+
 # Workspace
 
 ## Overview

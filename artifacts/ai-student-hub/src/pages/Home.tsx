@@ -81,19 +81,11 @@ export default function Home() {
       >
         <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <a href="#" style={{ display: "flex", alignItems: "center", gap: "12px", fontWeight: 800, fontSize: "1.2rem", textDecoration: "none", color: "#ffffff" }}>
-            <div
-              style={{
-                backgroundColor: "#6366f1",
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Zap size={18} fill="white" color="white" />
-            </div>
+            <img
+              src="/brain_logo.png"
+              alt="AI Student Hub"
+              style={{ width: "40px", height: "40px", borderRadius: "10px", objectFit: "cover" }}
+            />
             AI Student Hub
           </a>
 
