@@ -1,0 +1,12 @@
+packages:
+  "framer-motion": "For lightweight entry animations and smooth scroll visual feedback"
+  "clsx": "For conditional tailwind class joining"
+  "tailwind-merge": "For merging tailwind classes safely"
+
+images: []
+
+notes:
+  - "Frontend-only landing page for AI Student Hub."
+  - "No backend API integration required based on spec."
+  - "Ad slots are rendered as styled placeholders, ready for actual ad scripts."
+  - "Cookie consent uses localStorage to remember user preference."
