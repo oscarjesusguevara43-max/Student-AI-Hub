@@ -126,14 +126,24 @@ export default function Home() {
         }}
       >
         <div className="site-container">
-          <motion.span
-            initial={{ scale: 0.7, opacity: 0 }}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            style={{ fontSize: "4rem", display: "block", marginBottom: "24px" }}
+            style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}
           >
-            👨‍🎓
-          </motion.span>
+            <img
+              src="/hero_exams.png"
+              alt="Exámenes con calificación perfecta de 100"
+              style={{
+                width: "200px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "24px",
+                boxShadow: "0 8px 40px rgba(99,102,241,0.35)",
+              }}
+            />
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
