@@ -299,8 +299,10 @@ export default function Home() {
                 </p>
 
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <button
-                    onClick={() => alert("¡Descarga iniciada!")}
+                  <a
+                    href="https://drive.google.com/file/d/1R0ApEtTxNG7Jm0lJV7un3S3nBfGRHLd9/view?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -309,29 +311,28 @@ export default function Home() {
                       padding: "18px 36px",
                       minHeight: "60px",
                       borderRadius: "12px",
-                      backgroundColor: "#22c55e",
+                      backgroundColor: "#6366f1",
                       color: "#ffffff",
                       fontWeight: 700,
                       fontSize: "1.1rem",
-                      border: "none",
-                      cursor: "pointer",
-                      boxShadow: "0 4px 14px rgba(34,197,94,0.4)",
+                      textDecoration: "none",
+                      boxShadow: "0 4px 14px rgba(99,102,241,0.4)",
                       transition: "background-color 0.2s, transform 0.2s",
                       width: "100%",
                       maxWidth: "380px",
                     }}
                     onMouseEnter={e => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor = "#16a34a";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "#4f46e5";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                     }}
                     onMouseLeave={e => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor = "#22c55e";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "#6366f1";
                       (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                     }}
                   >
                     <Download size={22} />
                     DESCARGAR GUÍA PDF GRATIS
-                  </button>
+                  </a>
                 </div>
 
                 <p style={{ color: "#a1a1aa", fontSize: "0.8rem", marginTop: "16px" }}>
