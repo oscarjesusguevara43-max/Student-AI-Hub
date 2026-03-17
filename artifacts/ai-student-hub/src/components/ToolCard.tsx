@@ -18,45 +18,114 @@ interface ToolCardProps {
 export function ToolCard({ tool, index }: ToolCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="group bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/8 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300"
+      transition={{ duration: 0.4, delay: index * 0.07 }}
+      style={{
+        backgroundColor: "#1e1e1e",
+        border: "1px solid #2a2a2a",
+        borderRadius: "16px",
+        padding: "24px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        transition: "border-color 0.2s, box-shadow 0.2s",
+      }}
+      className="group hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10"
     >
-      <div className="flex items-start gap-5">
-        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-400">
+      <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+        {/* Icon */}
+        <div
+          style={{
+            flexShrink: 0,
+            width: "52px",
+            height: "52px",
+            borderRadius: "12px",
+            backgroundColor: "rgba(99,102,241,0.15)",
+            border: "1px solid rgba(99,102,241,0.25)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#818cf8",
+          }}
+        >
           {tool.icon}
         </div>
 
-        <div className="flex-grow min-w-0">
-          <div className="flex flex-wrap items-center gap-3 mb-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400">
+        {/* Text */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
+            <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#6366f1", textTransform: "uppercase", letterSpacing: "1px" }}>
               #{tool.id}
             </span>
-            <h3 className="text-xl font-bold text-white">
+            <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", margin: 0 }}>
               {tool.name}
             </h3>
-            <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 text-xs font-semibold">
+            <span
+              style={{
+                padding: "2px 10px",
+                borderRadius: "999px",
+                backgroundColor: "rgba(99,102,241,0.15)",
+                color: "#a5b4fc",
+                fontSize: "0.72rem",
+                fontWeight: 600,
+              }}
+            >
               {tool.tagline}
             </span>
           </div>
 
-          <p className="text-white/60 text-sm md:text-base leading-relaxed line-clamp-2 mb-5">
+          <p
+            style={{
+              color: "#a1a1aa",
+              fontSize: "0.9rem",
+              lineHeight: 1.6,
+              margin: 0,
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
             {tool.description}
           </p>
-
-          <a
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 min-h-[48px] rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-indigo-500/25"
-          >
-            Probar Ahora
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </a>
         </div>
       </div>
+
+      {/* Button */}
+      <a
+        href={tool.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "12px 20px",
+          minHeight: "48px",
+          borderRadius: "10px",
+          backgroundColor: "#6366f1",
+          color: "#ffffff",
+          fontWeight: 700,
+          fontSize: "0.9rem",
+          textDecoration: "none",
+          transition: "background-color 0.2s, transform 0.2s, box-shadow 0.2s",
+          boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
+          alignSelf: "flex-start",
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = "#4f46e5";
+          (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = "#6366f1";
+          (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+        }}
+      >
+        Probar Ahora
+        <ArrowRight size={16} />
+      </a>
     </motion.div>
   );
 }

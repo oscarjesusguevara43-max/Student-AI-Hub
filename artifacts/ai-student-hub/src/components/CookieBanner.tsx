@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cookie, X } from "lucide-react";
 
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,8 +7,7 @@ export function CookieBanner() {
   useEffect(() => {
     const hasAccepted = localStorage.getItem("cookie_consent");
     if (!hasAccepted) {
-      // Small delay so it doesn't pop up instantly on load
-      const timer = setTimeout(() => setIsVisible(true), 1000);
+      const timer = setTimeout(() => setIsVisible(true), 1500);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -23,49 +21,88 @@ export function CookieBanner() {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ type: "spring", damping: 25, stiffness: 20 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none"
+          exit={{ y: 80, opacity: 0 }}
+          transition={{ type: "spring", damping: 28, stiffness: 220 }}
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 9999,
+            padding: "16px",
+          }}
         >
-          <div className="max-w-4xl mx-auto pointer-events-auto">
-            <div className="glass-panel rounded-2xl p-5 md:p-6 flex flex-col md:flex-row items-center gap-4 border-primary/20 shadow-2xl shadow-primary/10">
-              <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full items-center justify-center text-primary">
-                <Cookie className="w-6 h-6" />
-              </div>
-              
-              <div className="flex-grow text-center md:text-left">
-                <h3 className="text-sm font-bold text-foreground mb-1 flex items-center justify-center md:justify-start gap-2">
-                  <Cookie className="w-4 h-4 md:hidden text-primary" />
-                  Aviso de Privacidad
-                </h3>
-                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                  Usamos cookies para mejorar tu experiencia y mostrar publicidad relevante. Al continuar, aceptas nuestra política de privacidad.
-                </p>
-              </div>
-              
-              <div className="flex flex-shrink-0 gap-3 w-full md:w-auto mt-2 md:mt-0">
-                <button 
-                  onClick={() => setIsVisible(false)}
-                  className="flex-1 md:flex-none px-4 py-2.5 rounded-xl text-sm font-medium text-muted-foreground hover:bg-muted transition-colors"
-                >
-                  Más Info
-                </button>
-                <button 
-                  onClick={handleAccept}
-                  className="flex-1 md:flex-none px-6 py-2.5 rounded-xl text-sm font-bold bg-primary text-primary-foreground shadow-md hover:shadow-lg hover:bg-primary/90 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-                >
-                  Aceptar
-                </button>
-              </div>
-              
-              <button 
+          <div
+            style={{
+              maxWidth: "800px",
+              margin: "0 auto",
+              backgroundColor: "#1e1e1e",
+              border: "1px solid #333",
+              borderRadius: "16px",
+              padding: "20px 24px",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "16px",
+              boxShadow: "0 -4px 40px rgba(0,0,0,0.5)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <p
+              style={{
+                flex: 1,
+                minWidth: "200px",
+                color: "#a1a1aa",
+                fontSize: "0.875rem",
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              🍪 Usamos cookies para mejorar tu experiencia y mostrar publicidad relevante.
+              Al continuar, aceptas nuestra{" "}
+              <a href="#" style={{ color: "#818cf8", textDecoration: "underline" }}>
+                política de privacidad
+              </a>
+              .
+            </p>
+
+            <div style={{ display: "flex", gap: "10px", flexShrink: 0 }}>
+              <button
                 onClick={() => setIsVisible(false)}
-                className="absolute top-3 right-3 p-1.5 text-muted-foreground hover:bg-muted rounded-full transition-colors md:hidden"
-                aria-label="Cerrar"
+                style={{
+                  padding: "10px 18px",
+                  borderRadius: "8px",
+                  backgroundColor: "transparent",
+                  border: "1px solid #333",
+                  color: "#a1a1aa",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  transition: "border-color 0.2s",
+                }}
               >
-                <X className="w-4 h-4" />
+                Más Info
+              </button>
+              <button
+                onClick={handleAccept}
+                style={{
+                  padding: "10px 22px",
+                  borderRadius: "8px",
+                  backgroundColor: "#6366f1",
+                  border: "none",
+                  color: "#ffffff",
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
+                  transition: "background-color 0.2s",
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#4f46e5")}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = "#6366f1")}
+              >
+                Aceptar
               </button>
             </div>
           </div>

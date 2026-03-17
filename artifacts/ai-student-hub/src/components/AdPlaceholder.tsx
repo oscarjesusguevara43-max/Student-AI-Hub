@@ -1,24 +1,29 @@
-import { cn } from "@/lib/utils";
-
 interface AdPlaceholderProps {
-  className?: string;
   type?: "banner" | "native";
 }
 
-export function AdPlaceholder({ className, type = "banner" }: AdPlaceholderProps) {
+export function AdPlaceholder({ type = "banner" }: AdPlaceholderProps) {
   return (
     <div
-      className={cn(
-        "w-full flex items-center justify-center rounded-2xl",
-        type === "banner"
-          ? "min-h-[90px] bg-white/5 border border-white/10"
-          : "min-h-[160px] bg-white/5 border border-white/10",
-        className
-      )}
+      style={{
+        backgroundColor: "#1a1a1a",
+        border: "1px solid #333",
+        borderRadius: "12px",
+        padding: type === "native" ? "30px 15px" : "15px",
+        margin: "0",
+        textAlign: "center",
+        color: "#a1a1aa",
+        fontSize: "0.75rem",
+        textTransform: "uppercase",
+        letterSpacing: "1px",
+        width: "100%",
+        minHeight: type === "native" ? "120px" : "60px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
-      <span className="text-xs font-medium uppercase tracking-widest text-white/20">
-        Publicidad
-      </span>
+      Publicidad
     </div>
   );
 }
