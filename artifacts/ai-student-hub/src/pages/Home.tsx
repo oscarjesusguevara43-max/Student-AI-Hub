@@ -133,7 +133,7 @@ export default function Home() {
             style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}
           >
             <img
-              src="/hero_exams.png"
+              src="/hero_exams_real.jpg"
               alt="Exámenes con calificación perfecta de 100"
               style={{
                 width: "200px",
