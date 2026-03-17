@@ -42,38 +42,38 @@
 }
 
 :root {
-  /* Vibrant Light Theme - Youthful & Energetic */
-  --background: 240 25% 98%;
-  --foreground: 240 50% 10%;
-  
-  --card: 0 0% 100%;
-  --card-foreground: 240 50% 10%;
-  --card-border: 240 20% 90%;
-  
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 50% 10%;
-  --popover-border: 240 20% 90%;
-  
-  --primary: 262 83% 58%; /* Vibrant Purple */
-  --primary-foreground: 210 40% 98%;
-  
-  --secondary: 221 83% 53%; /* Bright Blue */
-  --secondary-foreground: 210 40% 98%;
-  
-  --muted: 240 20% 94%;
-  --muted-foreground: 240 10% 45%;
-  
-  --accent: 316 70% 55%; /* Energetic Pink */
-  --accent-foreground: 210 40% 98%;
-  
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
+  /* Dark Tech Theme — #121212 base, indigo #6366f1 accent */
+  --background: 0 0% 7%;         /* #121212 */
+  --foreground: 0 0% 97%;        /* near-white */
 
-  --border: 240 20% 90%;
-  --input: 240 20% 90%;
-  --ring: 262 83% 58%;
-  
-  --radius: 1rem;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 97%;
+  --card-border: 0 0% 15%;
+
+  --popover: 0 0% 10%;
+  --popover-foreground: 0 0% 97%;
+  --popover-border: 0 0% 15%;
+
+  --primary: 239 84% 67%;        /* #6366f1 indigo-500 */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 85%;
+
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 50%;
+
+  --accent: 263 70% 65%;         /* purple */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 15%;
+  --input: 0 0% 18%;
+  --ring: 239 84% 67%;
+
+  --radius: 0.75rem;
 }
 
 @layer base {

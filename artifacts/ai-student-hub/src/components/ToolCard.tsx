@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 
 export interface ToolProps {
   id: number;
@@ -8,7 +7,6 @@ export interface ToolProps {
   tagline: string;
   description: string;
   url: string;
-  colorClass: string;
   icon: React.ReactNode;
 }
 
@@ -20,58 +18,42 @@ interface ToolCardProps {
 export function ToolCard({ tool, index }: ToolCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative bg-card rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-xl border border-border/50 hover:border-border transition-all duration-300"
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay: index * 0.08 }}
+      className="group bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/8 hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300"
     >
-      {/* Number Badge */}
-      <div className={cn(
-        "absolute -top-4 -left-4 w-12 h-12 rounded-2xl flex items-center justify-center font-display font-bold text-xl text-white shadow-lg rotate-[-5deg] group-hover:rotate-0 transition-transform duration-300",
-        tool.colorClass
-      )}>
-        #{tool.id}
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-        {/* Icon Container */}
-        <div className={cn(
-          "flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-white bg-gradient-to-br shadow-inner",
-          tool.colorClass
-        )}>
+      <div className="flex items-start gap-5">
+        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-400">
           {tool.icon}
         </div>
 
-        {/* Content */}
-        <div className="flex-grow">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2">
-            <h3 className="text-2xl font-bold text-foreground font-display">
+        <div className="flex-grow min-w-0">
+          <div className="flex flex-wrap items-center gap-3 mb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-400">
+              #{tool.id}
+            </span>
+            <h3 className="text-xl font-bold text-white">
               {tool.name}
             </h3>
-            <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold text-muted-foreground uppercase tracking-wider w-fit">
+            <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 text-xs font-semibold">
               {tool.tagline}
             </span>
           </div>
-          <p className="text-muted-foreground md:text-lg leading-relaxed">
+
+          <p className="text-white/60 text-sm md:text-base leading-relaxed line-clamp-2 mb-5">
             {tool.description}
           </p>
-        </div>
 
-        {/* Action */}
-        <div className="flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">
           <a
             href={tool.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-6 py-4 min-h-[48px] overflow-hidden rounded-xl font-bold text-white shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 active:translate-y-0"
+            className="inline-flex items-center gap-2 px-5 py-3 min-h-[48px] rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-indigo-500/25"
           >
-            <span className={cn("absolute inset-0 w-full h-full bg-gradient-to-r", tool.colorClass)}></span>
-            <span className="absolute inset-0 w-full h-full opacity-0 group-hover/btn:opacity-20 bg-white transition-opacity duration-300"></span>
-            <span className="relative flex items-center gap-2">
-              Probar Ahora
-              <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-            </span>
+            Probar Ahora
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
         </div>
       </div>

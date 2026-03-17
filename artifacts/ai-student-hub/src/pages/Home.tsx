@@ -7,9 +7,8 @@ import {
   PenTool, 
   CalendarClock,
   Download,
-  Sparkles,
   Zap,
-  GraduationCap
+  Sparkles
 } from "lucide-react";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { ToolCard, type ToolProps } from "@/components/ToolCard";
@@ -22,200 +21,179 @@ const TOOLS: ToolProps[] = [
     tagline: "Investigación Real",
     description: "Como ChatGPT pero con fuentes reales de internet. Ideal para bibliografías y trabajos que requieran citas exactas.",
     url: "https://perplexity.ai",
-    colorClass: "from-blue-500 to-indigo-500",
-    icon: <Search className="w-8 h-8" />
+    icon: <Search className="w-6 h-6" />
   },
   {
     id: 2,
     name: "Humata.ai",
     tagline: "Resumidor de PDFs",
-    description: "Sube un PDF de 50 páginas y hazle preguntas. Te responde en segundos con referencias exactas al texto original.",
+    description: "Sube un PDF de 50 páginas y hazle preguntas. Te responde en segundos.",
     url: "https://humata.ai",
-    colorClass: "from-purple-500 to-pink-500",
-    icon: <FileText className="w-8 h-8" />
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 3,
     name: "Gamma",
     tagline: "Presentaciones con IA",
-    description: "Crea presentaciones completas y atractivas con un solo prompt. Dile adiós a pasar horas acomodando cuadros en PowerPoint.",
+    description: "Crea presentaciones completas y atractivas con un solo prompt. Dile adiós al PowerPoint.",
     url: "https://gamma.app",
-    colorClass: "from-orange-500 to-rose-500",
-    icon: <Presentation className="w-8 h-8" />
+    icon: <Presentation className="w-6 h-6" />
   },
   {
     id: 4,
     name: "DeepL Write",
     tagline: "Corrector Pro",
-    description: "No solo corrige ortografía, mejora el tono de tus ensayos para que parezcan escritos a nivel universitario avanzado.",
+    description: "No solo corrige ortografía, mejora el tono de tus ensayos para que parezcan de nivel universitario.",
     url: "https://deepl.com/write",
-    colorClass: "from-emerald-500 to-teal-500",
-    icon: <PenTool className="w-8 h-8" />
+    icon: <PenTool className="w-6 h-6" />
   },
   {
     id: 5,
     name: "Reclaim AI",
     tagline: "Gestión de Tiempo",
-    description: "Organiza tu calendario de estudios automáticamente alrededor de tus clases para que tengas tiempo libre real para salir.",
+    description: "Organiza tu calendario de estudios automáticamente para que tengas tiempo de salir.",
     url: "https://reclaim.ai",
-    colorClass: "from-cyan-500 to-blue-500",
-    icon: <CalendarClock className="w-8 h-8" />
+    icon: <CalendarClock className="w-6 h-6" />
   }
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/20 selection:text-primary">
-      {/* Navigation (Minimal) */}
-      <nav className="absolute top-0 w-full p-6 flex justify-center md:justify-between items-center z-10">
-        <div className="flex items-center gap-2 font-display font-bold text-xl tracking-tight">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-            <Zap className="w-5 h-5 fill-current" />
+    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30">
+
+      {/* NAV */}
+      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-white/8 px-6 py-4">
+        <div className="max-w-5xl mx-auto flex items-center gap-2.5">
+          <div className="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center">
+            <Zap className="w-4 h-4 text-white fill-white" />
           </div>
-          <span>AI Student Hub</span>
+          <span className="font-bold text-lg text-white tracking-tight">AI Student Hub</span>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <header className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 overflow-hidden bg-gradient-hero border-b border-border/50">
-        {/* Abstract Background Shapes */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-full pointer-events-none opacity-40 blur-3xl">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-primary/30 rounded-full mix-blend-multiply animate-pulse" />
-          <div className="absolute top-40 right-10 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply animate-pulse delay-700" />
-        </div>
+      {/* HERO */}
+      <header className="pt-40 pb-24 px-6">
+        <div className="max-w-3xl mx-auto text-center">
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-xl shadow-primary/10 mb-8 border border-primary/10"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 180, damping: 20 }}
+            className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-indigo-500/15 border border-indigo-500/25 mb-10 text-4xl"
           >
-            <span className="text-6xl md:text-7xl leading-none">👨‍🎓💻</span>
+            👨‍🎓
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black font-display tracking-tight text-foreground mb-6"
+            transition={{ delay: 0.15 }}
+            className="text-5xl md:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
           >
-            Pasa tus materias en <br className="hidden md:block" />
-            <span className="text-gradient-primary">tiempo récord 🚀</span>
+            Pasa tus materias en{" "}
+            <span className="text-indigo-400">tiempo récord 🚀</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            transition={{ delay: 0.25 }}
+            className="text-lg md:text-xl text-white/60 leading-relaxed mb-12 max-w-2xl mx-auto"
           >
-            Las herramientas de IA que tus profes <strong className="text-foreground">no quieren que conozcas</strong>. Haz tareas de horas en segundos.
+            Las herramientas de IA que tus profes{" "}
+            <strong className="text-white font-semibold">no quieren que conozcas</strong>.
+            Haz tareas de horas en segundos.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col items-center gap-6"
+            transition={{ delay: 0.35 }}
           >
-            <a 
+            <a
               href="#tools"
-              className="group inline-flex items-center justify-center gap-3 bg-foreground text-background px-8 py-4 md:py-5 min-h-[56px] rounded-2xl font-bold text-lg md:text-xl shadow-2xl shadow-black/20 hover:shadow-black/30 hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg px-8 py-4 min-h-[56px] rounded-2xl shadow-xl shadow-indigo-500/25 hover:-translate-y-1 active:translate-y-0 transition-all duration-200"
             >
               Ver las herramientas
-              <ChevronDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
+              <ChevronDown className="w-5 h-5" />
             </a>
           </motion.div>
         </div>
       </header>
 
-      <main className="px-4 py-12 md:py-20">
-        <div className="max-w-4xl mx-auto space-y-16">
-          
+      <main className="px-6">
+        <div className="max-w-3xl mx-auto space-y-20">
+
           {/* AD SLOT 1 */}
-          <section className="w-full">
-            <AdPlaceholder 
-              label="📢 Espacio Publicitario #1 – Banner Superior" 
-              subLabel="Este es el primero que carga. Paga bien porque todos lo ven al entrar."
-              className="bg-white"
-            />
+          <section>
+            <AdPlaceholder type="banner" />
           </section>
 
-          {/* TOOLS SECTION */}
-          <section id="tools" className="scroll-mt-24">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-4">
+          {/* TOOLS */}
+          <section id="tools" className="scroll-mt-20">
+            <div className="text-center mb-14">
+              <p className="text-indigo-400 text-sm font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
+                <Sparkles className="w-4 h-4" />
+                Seleccionadas para estudiantes universitarios
+              </p>
+              <h2 className="text-3xl md:text-5xl font-black text-white">
                 Las 5 IAs que necesitas conocer
               </h2>
-              <p className="text-lg text-muted-foreground flex items-center justify-center gap-2">
-                <Sparkles className="w-5 h-5 text-accent" />
-                Seleccionadas especialmente para estudiantes universitarios
-              </p>
             </div>
 
-            <div className="space-y-8 md:space-y-12 pl-4 md:pl-6">
-              {TOOLS.slice(0, 3).map((tool, index) => (
-                <ToolCard key={tool.id} tool={tool} index={index} />
+            <div className="space-y-5">
+              {TOOLS.slice(0, 3).map((tool, i) => (
+                <ToolCard key={tool.id} tool={tool} index={i} />
               ))}
 
-              {/* AD SLOT 2 (Native) */}
+              {/* AD SLOT 2 */}
               <div className="py-4">
-                <AdPlaceholder 
-                  type="native"
-                  label="🚀 Espacio Publicitario #2 – Anuncio Nativo" 
-                  subLabel="Colocado estratégicamente. El usuario ya está interesado y haciendo scroll."
-                />
+                <AdPlaceholder type="native" />
               </div>
 
-              {TOOLS.slice(3, 5).map((tool, index) => (
-                <ToolCard key={tool.id} tool={tool} index={index + 3} />
+              {TOOLS.slice(3).map((tool, i) => (
+                <ToolCard key={tool.id} tool={tool} index={i + 3} />
               ))}
             </div>
           </section>
 
           {/* AD SLOT 3 */}
-          <section className="w-full pt-8">
-            <AdPlaceholder 
-              label="📣 Espacio Publicitario #3 – Antes del Botón de Descarga" 
-              subLabel="Aumenta visibilidad porque el usuario pausa aquí para buscar el botón de descarga."
-            />
+          <section>
+            <AdPlaceholder type="banner" />
           </section>
 
-          {/* DOWNLOAD BONUS SECTION */}
-          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-accent p-1">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-            <div className="relative bg-background/95 backdrop-blur-xl rounded-[23px] p-8 md:p-16 text-center border border-white/20">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-                <GraduationCap className="w-8 h-8" />
+          {/* DOWNLOAD */}
+          <section className="relative rounded-3xl border border-indigo-500/30 bg-indigo-500/5 p-8 md:p-16 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 via-transparent to-purple-600/10 pointer-events-none" />
+            
+            <div className="relative">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-500/15 border border-indigo-500/25 text-3xl mb-8">
+                🎁
               </div>
-              
-              <h2 className="text-3xl md:text-5xl font-black font-display mb-4 text-foreground">
-                🎁 ¡Bonus exclusivo para estudiantes!
+
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+                ¡Bonus exclusivo para estudiantes!
               </h2>
-              
-              <p className="text-xl md:text-2xl font-semibold text-primary mb-4">
+
+              <p className="text-xl font-semibold text-indigo-300 mb-4">
                 Descarga mi lista secreta de +50 Prompts para sacar 10 en exámenes
               </p>
-              
-              <p className="text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Prompts probados para ChatGPT, Perplexity, DeepL y más. Usado por más de 10,000 estudiantes para optimizar sus sesiones de estudio.
+
+              <p className="text-white/50 mb-10 max-w-xl mx-auto leading-relaxed">
+                Prompts probados para ChatGPT, Perplexity, DeepL y más.
+                Usado por más de 10,000 estudiantes.
               </p>
 
-              <button 
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-5 min-h-[60px] overflow-hidden rounded-2xl font-black text-lg md:text-xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 active:translate-y-0"
-                onClick={() => alert("¡Descarga iniciada! (Simulación)")}
+              <button
+                onClick={() => alert("¡Descarga iniciada!")}
+                className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 min-h-[60px] rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-lg shadow-2xl shadow-indigo-500/30 hover:-translate-y-1 active:translate-y-0 transition-all duration-200"
               >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient"></span>
-                <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 bg-white transition-opacity duration-300"></span>
-                <span className="relative flex items-center gap-3">
-                  <Download className="w-6 h-6 group-hover:animate-bounce" />
-                  DESCARGAR GUÍA PDF GRATIS
-                </span>
+                <Download className="w-6 h-6" />
+                DESCARGAR GUÍA PDF GRATIS
               </button>
-              
-              <p className="text-xs text-muted-foreground mt-6 font-medium">
-                🔒 100% Gratis. Sin spam.
+
+              <p className="text-xs text-white/30 mt-6">
+                🔒 100% Gratis · Sin spam
               </p>
             </div>
           </section>
@@ -224,27 +202,23 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-border/50 bg-muted/30 py-12 mt-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 font-display font-bold text-lg mb-6 opacity-80">
-            <Zap className="w-4 h-4 fill-primary text-primary" />
-            <span>AI Student Hub</span>
+      <footer className="mt-24 border-t border-white/8 py-14 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Zap className="w-4 h-4 text-indigo-400 fill-indigo-400" />
+            <span className="font-bold text-white/70">AI Student Hub</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground mb-6">
-            <a href="#" className="hover:text-primary transition-colors">Política de Privacidad</a>
-            <a href="#" className="hover:text-primary transition-colors">Términos de Uso</a>
-            <a href="#" className="hover:text-primary transition-colors">Contacto</a>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/30 mb-8">
+            <a href="#" className="hover:text-indigo-400 transition-colors">Política de Privacidad</a>
+            <a href="#" className="hover:text-indigo-400 transition-colors">Términos de Uso</a>
+            <a href="#" className="hover:text-indigo-400 transition-colors">Contacto</a>
           </div>
-          <p className="text-sm text-muted-foreground/60">
-            © {new Date().getFullYear()} AI Student Hub. Todos los derechos reservados.
-            <br className="md:hidden" />
-            <span className="hidden md:inline"> | </span> 
-            Hecho para estudiantes, por estudiantes.
+          <p className="text-xs text-white/20">
+            © {new Date().getFullYear()} AI Student Hub · Hecho para estudiantes, por estudiantes.
           </p>
         </div>
       </footer>
 
-      {/* Global Modals/Banners */}
       <CookieBanner />
     </div>
   );
