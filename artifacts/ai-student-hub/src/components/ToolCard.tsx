@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 
 export interface ToolProps {
@@ -16,13 +16,25 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool, index }: ToolCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); observer.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.4, delay: index * 0.07 }}
+    <div
+      ref={ref}
+      className="tool-card"
       style={{
+        transitionDelay: `${index * 60}ms`,
         backgroundColor: "#1e1e1e",
         border: "1px solid #2a2a2a",
         borderRadius: "16px",
@@ -30,12 +42,9 @@ export function ToolCard({ tool, index }: ToolCardProps) {
         display: "flex",
         flexDirection: "column",
         gap: "16px",
-        transition: "border-color 0.2s, box-shadow 0.2s",
       }}
-      className="group hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10"
     >
       <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
-        {/* Icon */}
         <div
           style={{
             flexShrink: 0,
@@ -53,7 +62,6 @@ export function ToolCard({ tool, index }: ToolCardProps) {
           {tool.icon}
         </div>
 
-        {/* Text */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
             <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#6366f1", textTransform: "uppercase", letterSpacing: "1px" }}>
@@ -76,20 +84,12 @@ export function ToolCard({ tool, index }: ToolCardProps) {
             </span>
           </div>
 
-          <p
-            style={{
-              color: "#a1a1aa",
-              fontSize: "0.9rem",
-              lineHeight: 1.6,
-              margin: 0,
-            }}
-          >
+          <p style={{ color: "#a1a1aa", fontSize: "0.9rem", lineHeight: 1.6, margin: 0 }}>
             {tool.description}
           </p>
         </div>
       </div>
 
-      {/* Button */}
       <a
         href={tool.url}
         target="_blank"
@@ -106,9 +106,10 @@ export function ToolCard({ tool, index }: ToolCardProps) {
           fontWeight: 700,
           fontSize: "0.9rem",
           textDecoration: "none",
-          transition: "background-color 0.2s, transform 0.2s, box-shadow 0.2s",
-          boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
+          transition: "background-color 0.2s, transform 0.2s",
+          boxShadow: "0 4px 14px rgba(99,102,241,0.3)",
           alignSelf: "flex-start",
+          willChange: "transform",
         }}
         onMouseEnter={e => {
           (e.currentTarget as HTMLElement).style.backgroundColor = "#4f46e5";
@@ -122,6 +123,6 @@ export function ToolCard({ tool, index }: ToolCardProps) {
         Probar Ahora
         <ArrowRight size={16} />
       </a>
-    </motion.div>
+    </div>
   );
 }

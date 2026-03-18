@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Search,
   FileText,
@@ -121,15 +120,13 @@ export default function Home() {
         }}
       >
         <div className="site-container">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 18 }}
-            style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}
-          >
+          <div className="anim-fade-in" style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}>
             <img
               src="/hero_exams_real.jpg"
               alt="Exámenes con calificación perfecta de 100"
+              width={200}
+              height={200}
+              fetchPriority="high"
               style={{
                 width: "200px",
                 height: "200px",
@@ -138,12 +135,10 @@ export default function Home() {
                 boxShadow: "0 8px 40px rgba(99,102,241,0.35)",
               }}
             />
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
+          <h1
+            className="hero-h1 anim-fade-up anim-delay-1"
             style={{
               fontWeight: 800,
               lineHeight: 1.1,
@@ -152,16 +147,13 @@ export default function Home() {
               maxWidth: "800px",
               marginInline: "auto",
             }}
-            className="hero-h1"
           >
             Pasa tus materias en{" "}
             <span style={{ color: "#6366f1" }}>tiempo récord 🚀</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
+          <p
+            className="anim-fade-up anim-delay-2"
             style={{
               color: "#a1a1aa",
               fontSize: "1.1rem",
@@ -172,14 +164,9 @@ export default function Home() {
             Las herramientas de IA que tus profes{" "}
             <strong style={{ color: "#ffffff" }}>no quieren que conozcas</strong>.
             Haz tareas de horas en segundos.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
+          <div className="anim-fade-up anim-delay-3" style={{ display: "flex", justifyContent: "center" }}>
             <a
               href="#tools"
               style={{
@@ -212,7 +199,7 @@ export default function Home() {
               Ver las herramientas
               <ChevronDown size={20} />
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
