@@ -230,7 +230,7 @@ export default function Home() {
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <p style={{ color: "#6366f1", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
                 <Sparkles size={14} />
-                Seleccionadas para estudiantes universitarios
+                Seleccionadas para cualquier estudiante
               </p>
               <h2 style={{ fontSize: "2.2rem", fontWeight: 800, color: "#ffffff", letterSpacing: "-1px", margin: 0 }}>
                 Las 5 IAs que necesitas conocer
