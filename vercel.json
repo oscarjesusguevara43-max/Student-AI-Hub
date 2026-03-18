@@ -1,0 +1,7 @@
+{
+  "buildCommand": "pnpm --filter @workspace/ai-student-hub run build",
+  "outputDirectory": "artifacts/ai-student-hub/dist/public",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
