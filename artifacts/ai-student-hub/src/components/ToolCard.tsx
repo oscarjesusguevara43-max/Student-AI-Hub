@@ -82,10 +82,6 @@ export function ToolCard({ tool, index }: ToolCardProps) {
               fontSize: "0.9rem",
               lineHeight: 1.6,
               margin: 0,
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
             }}
           >
             {tool.description}

@@ -19,8 +19,7 @@ const TOOLS: ToolProps[] = [
     id: 1,
     name: "Perplexity AI",
     tagline: "Investigación Real",
-    description:
-      "Como ChatGPT pero con fuentes reales de internet. Ideal para bibliografías y trabajos que requieran citas exactas.",
+    description: "Busca en internet y cita fuentes reales. Perfecta para hacer bibliografías en minutos.",
     url: "https://perplexity.ai",
     icon: <Search size={22} />,
   },
@@ -28,8 +27,7 @@ const TOOLS: ToolProps[] = [
     id: 2,
     name: "Humata.ai",
     tagline: "Resumidor de PDFs",
-    description:
-      "Sube un PDF de 50 páginas y hazle preguntas. Te responde en segundos.",
+    description: "Sube cualquier PDF y hazle preguntas directas. Te resume libros y apuntes al instante.",
     url: "https://humata.ai",
     icon: <FileText size={22} />,
   },
@@ -37,8 +35,7 @@ const TOOLS: ToolProps[] = [
     id: 3,
     name: "Gamma",
     tagline: "Presentaciones con IA",
-    description:
-      "Crea presentaciones completas y atractivas con un solo prompt. Dile adiós al PowerPoint.",
+    description: "Escribe un tema y genera una presentación completa con diseño. Sin PowerPoint, sin perder tiempo.",
     url: "https://gamma.app",
     icon: <Presentation size={22} />,
   },
@@ -46,8 +43,7 @@ const TOOLS: ToolProps[] = [
     id: 4,
     name: "DeepL Write",
     tagline: "Corrector Pro",
-    description:
-      "No solo corrige ortografía, mejora el tono de tus ensayos para que parezcan de nivel universitario.",
+    description: "Corrige y mejora el estilo de tus textos. Tus ensayos sonarán a nivel universitario avanzado.",
     url: "https://deepl.com/write",
     icon: <PenTool size={22} />,
   },
@@ -55,8 +51,7 @@ const TOOLS: ToolProps[] = [
     id: 5,
     name: "Reclaim AI",
     tagline: "Gestión de Tiempo",
-    description:
-      "Organiza tu calendario de estudios automáticamente para que tengas tiempo de salir.",
+    description: "Organiza tu semana de estudio automáticamente. Respeta tus clases y te deja tiempo libre.",
     url: "https://reclaim.ai",
     icon: <CalendarClock size={22} />,
   },
